@@ -52,6 +52,7 @@
             mkdir -p $out/bin
             cat > $out/bin/sonix-flasher <<EOF
             #!${pkgs.bash}/bin/bash
+            export PATH="${env}/bin''${PATH:+:}\$PATH"
             cd "${self.outPath}"
             exec ${env}/bin/fbs run "\$@"
             EOF
