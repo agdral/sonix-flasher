@@ -22,6 +22,8 @@
           makeWrapper ${self.packages.${system}.env}/bin/fbs $out/bin/sonix-flasher \
             --prefix PATH : ${self.packages.${system}.env}/bin \
             --add-flags run
+            --run "cd \"${self.outPath}\"" \
+            --chdir "${self.outPath}"
         '';
       };
       env = pkgs.buildEnv {
